@@ -1,0 +1,61 @@
+<html>
+    <head><title>C193048_Class-02</title></head>
+    <body>
+        <style>
+            .button-class {
+                font-size: 40px;
+            } 
+        
+            .table-class {
+                width: 60%;
+                margin-top: 20px;
+        
+            }
+            #content {
+                margin-top: 5px;
+            }
+        </style>
+        <div>
+            <img style="width: 20%;margin-top: 10px;" src="images/2.jfif">
+        </div>
+        <table class="table-class" cellspacing="50" border="1" style="border-collapse: collapse">
+            <tr>
+                <td style="text-align: center"><b>Name</b></td>
+                <td style="text-align: center"><b>Departments</b></td>
+                <td style="text-align: center"><b>CGPA</b></td>
+            </tr>
+            <tr>
+                <td><b>Shah Ibne Fahad</b></td>
+                <td><b>Jabed Iqbal Joy</b></td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td><b>CSE</b></td>
+                <td><b>EEE</b></td>
+        
+            </tr>
+             <tr>
+                <td><b>3.75</b></td>
+                <td><b>3.50</b></td>
+        
+            </tr>
+            
+            <tr>
+                <td><b>102</b></td>
+            </tr>
+        </table>
+
+        <div id="" class="form" style="width: 50%;float: left">
+            <input placeholder="Enter student name" type="text" name="studentName"><br>
+            <input placeholder="Enter Student ID" type="text" name="studentId"><br>
+            <select name="department">
+                <option disabled selected value="">Select Department</option>
+                <option>CSE</option>
+                <option>ME</option>
+                <option>EEE</option>
+            </select><br>
+            <button class="button-class" name="formSubmit" value="Submit">Submit</button>
+        </div>
+
+    </body>
+</html>
