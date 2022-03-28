@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class_Work_javascript</title>
+    <script>
+        function summantion() {
+            var first_number = document.getElementById("first_number").value;
+            var second_number = document.getElementById("second_number").value;
+            var result = Number(first_number) + Number(second_number);
+            document.getElementById('result').value = result;
+        }
+        function onchange_myfun(first_number1 = 0, second_number1 = 0) {
+            //alert("Hello Uesr!");
+            var result = Number(first_number1) + Number(second_number1)
+            document.getElementById('result1').value = result;
+        }
+        function onblur_myfun(first_number2, second_number2) {
+            //alert("Hello Uesr!");
+            var first_number2 = document.getElementById("first_number2").value;
+            var second_number2 = document.getElementById("second_number2").value;
+            var result = Number(first_number2) + Number(second_number2)
+            document.getElementById('result2').value = result;
+        }
+    </script>
+</head>
+
+<body>
+    <div style="color: royalblue;">
+        <table>
+            <tr>
+                <td>First Number </td>
+                <td><input type="number" id="first_number" name="first_number"></td>
+            </tr>
+            <tr>
+                <td>Second Number </td>
+                <td><input type="number" id="second_number" name="second_number"></td>
+            </tr>
+            <tr>
+                <td>Result </td>
+                <td><input type="number" id="result" name="result"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="button" name="btn" id="btn" value="submit" style="background-color: blue;color: white;" onclick="summantion()"></td>
+            </tr>
+        </table>
+
+        <br> <br>
+        <table>
+            <tr>
+                <td>First Number</td>
+                <td><input type="number" id="first_number1" name="first_number1"
+                        onchange="onchange_myfun(getElementById('second_number1').value,this.value)"></td>
+            </tr>
+            <tr>
+                <td>Second Number</td>
+                <td><input type="number" id="second_number1" name="second_number1"
+                        onchange="onchange_myfun(getElementById('first_number1').value,this.value)"></td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td><input type="number" id="result1" name="result1"></td>
+            </tr>
+        </table>
+
+        <br> <br>
+
+        <table>
+            <tr>
+                <td>First Number</td>
+                <td><input type="number" id="first_number2" name="first_number2"
+                        onkeyup="onblur_myfun(this.value,getElementById('second_number2'))"></td>
+            </tr>
+            <tr>
+                <td>Second Number</td>
+                <td><input type="number" id="second_number2" name="second_number2"
+                        onkeyup="onblur_myfun(getElementById('first_number2'),this.value)"></td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td><input type="number" id="result2" name="result2"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
