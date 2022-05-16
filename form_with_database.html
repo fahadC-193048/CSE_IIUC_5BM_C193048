@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C193048_5BM</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <!-- <script>
+        $().ready(function () {
+            $(".datepicker").datepicker();
+            $("#frm").validate({
+                rules: {
+                   studentId : "required",
+                   studentName:"required",
+                   fatherName:"required",
+                   datepicker:"required",
+                   religion:"required",
+                //    gender:"required",
+                   section:"required",
+                //    department:"required",
+                }, messages: {
+                    studentId: "Please Enter First Name ",
+                    studentName:"Please Enter Mobile Number ",
+                    fatherName:"Please Enter Your Birth Date",
+                    datepicker:"Please Enter Your Birth Date",
+                    religion:"Enter Last Donate Date",
+                    // gender:"Please Enter Your Gender",
+                    section:"Please Enter Your Blood Group",
+                    // department:"Please Enter Your Address",
+                }
+            });
+        });
+    </script> -->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div style="background-color: yellowgreen" class="col-md-12">
+                <img style="width: 100%;height: 100%; " src="images/logo.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div style="background-color: rgb(204, 206, 223)" class="col-md-4">
+                <img style="width: 100%;height: 100%; " src="images/5.jpg">
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card-header bg-primary">
+                    <h3 style="color: white;">Registration Form</h3>
+                </div>
+
+                <form id="frm" method="post" action="db_connect.php">
+                    <table class="table table-bordered table-hover table-striped">
+                        <tr>
+                            <td><b>Student ID</b></td>
+                            <td>
+                                <input class="form-control" type="text" name="studentId" id="studentId">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Student Name</b></td>
+                            <td>
+                                <input class="form-control" type="text" name="studentName" id="studentName">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Father Name</b></td>
+                            <td>
+                                <input class="form-control" type="text" name="fatherName" id="fatherName">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Date Of Birth</b></td>
+                            <td>
+                                <input class="form-control" type="text" id="datepicker" name="datepicker">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Religion</b></td>
+                            <td>
+                                <input class="form-control" type="text" name="religion" id="religion">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Gender</b></td>
+                            <td>
+                                  <input type="radio" id="male" name="gender" value="male">
+                                  <label for="male">Male</label>
+                                  <input type="radio" id="female" name="gender" value="female">
+                                  <label for="female">Female</label>
+                                  <input type="radio" id="other" name="gender" value="other">
+                                  <label for="other">Other</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Section</b></td>
+                            <td>
+                                <input class="form-control" type="text" name="section" id="section">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Department</b></td>
+                            <td>
+                                <select name="department">
+                                    <option style="text-align: center;" disabled selected value="">Select Department
+                                    </option>
+                                    <option>CSE</option>
+                                    <option>ME</option>
+                                    <option>EEE</option>
+                                    <option>ETE</option>
+                                    <option>BBA</option>
+                                    <option>EB</option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input class="btn btn-success " value="Submit" type="submit">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div style="background-color: rgb(204, 206, 223)" class="col-md-4">
+                <img style="width: 100%;height: 100%; " src="images/3.jpg">
+            </div>
+
+        </div>
+    </div>
+    <?php 
+  // echo "<pre>" ;
+  // print_r($_POST);
+  $stid       = $_POST['studentId'] ;
+  $stname     = $_POST['studentName'] ;
+  $fathername = $_POST['fatherName'] ;
+  $dob        = $_POST['datepicker'] ;
+  $religion   = $_POST['religion'] ;
+  $sec        = $_POST['section'] ;
+  $dept       = $_POST['department'];
+  $gen        = $_POST['gender'];
+  
+
+  $connect = mysqli_connect("localhost","root","","studentdata");
+  mysqli_query($connect,"INSERT INTO reginfo(id,name,fathername,dob,religion,sec,dept,gender) values('$stid','$stname','$fathername','$dob','$religion','$sec','$dept','$gen')");
+  echo('Insert Successful');
+?>
+</body>
+
+</html>
